@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.customvictorylinechart.CustomVictoryLineChart" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Native"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Custom Victory Line Chart</name>
+    <description>My widget description</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="seriesList" type="object" isList="true">
+                <caption>Series</caption>
+                <description/>
+                <properties>
+                    <propertyGroup caption="General">
+                        <property key="data" type="datasource" isList="true" required="true">
+                            <caption>Chart datasource</caption>
+                            <description />
+                        </property>
+                        <property key="xAttr" type="attribute" dataSource="data" required="true">
+                            <caption>x attribute</caption>
+                            <description/>
+                            <attributeTypes>
+                                <attributeType name="String"/>
+                                <attributeType name="Decimal"/>
+                                <attributeType name="Integer"/>
+                            </attributeTypes>
+                        </property>
+                        <property key="yAttr" type="attribute" dataSource="data" required="true">
+                            <caption>y attribute</caption>
+                            <description/>
+                            <attributeTypes>
+                                <attributeType name="Decimal"/>
+                                <attributeType name="Integer"/>
+                            </attributeTypes>
+                        </property>
+                        <property key="type" type="enumeration" defaultValue="line">
+                            <caption>Type</caption>
+                            <description/>
+                            <enumerationValues>
+                                <enumerationValue key="line">Line</enumerationValue>
+                                <enumerationValue key="area">Area</enumerationValue>
+                            </enumerationValues>
+                        </property>
+                        <property key="color" type="textTemplate" required="true">
+                            <caption>Color</caption>
+                            <description/>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Options">
+            <property key="isStacked" type="boolean" defaultValue="false">
+                <caption>Stacked ?</caption>
+                <description/>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
