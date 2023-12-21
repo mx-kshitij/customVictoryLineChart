@@ -21,6 +21,7 @@
                             <caption>x attribute</caption>
                             <description/>
                             <attributeTypes>
+                                <attributeType name="DateTime"/>
                                 <attributeType name="String"/>
                                 <attributeType name="Decimal"/>
                                 <attributeType name="Integer"/>

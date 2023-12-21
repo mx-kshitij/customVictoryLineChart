@@ -11,7 +11,7 @@ export type TypeEnum = "line" | "area";
 
 export interface SeriesListType {
     data: ListValue;
-    xAttr: ListAttributeValue<string | Big>;
+    xAttr: ListAttributeValue<Date | string | Big>;
     yAttr: ListAttributeValue<Big>;
     type: TypeEnum;
     color: DynamicValue<string>;
