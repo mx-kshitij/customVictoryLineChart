@@ -26,7 +26,7 @@ export function CustomVictoryLineChart({
         const dataToReturn = series.data.items?.map(item => {
             return {
                 x: series.xAttr.get(item).value,
-                y: series.yAttr.get(item).value
+                y: series.yAttr.get(item).value?.toNumber()
             };
         });
         return dataToReturn;
