@@ -38,6 +38,7 @@ export interface CustomVictoryLineChartProps<Style> {
     style: Style[];
     seriesList: SeriesListType[];
     isStacked: boolean;
+    fillColor: boolean;
 }
 
 export interface CustomVictoryLineChartPreviewProps {
@@ -51,4 +52,5 @@ export interface CustomVictoryLineChartPreviewProps {
     readOnly: boolean;
     seriesList: SeriesListPreviewType[];
     isStacked: boolean;
+    fillColor: boolean;
 }

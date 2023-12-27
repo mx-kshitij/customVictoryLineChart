@@ -72,6 +72,10 @@
                 <caption>Stacked ?</caption>
                 <description/>
             </property>
+            <property key="fillColor" type="boolean" defaultValue="true">
+                <caption>Fill color ?</caption>
+                <description/>
+            </property>
         </propertyGroup>
     </properties>
 </widget>

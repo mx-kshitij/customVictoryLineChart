@@ -13,7 +13,8 @@ export function CustomVictoryLineChart({
     // Get properties (widget properties)
     // style,
     seriesList,
-    isStacked
+    isStacked,
+    fillColor
 }: CustomVictoryLineChartProps<CustomStyle>): ReactElement {
     if (!seriesList) {
         return <View />;
@@ -41,7 +42,7 @@ export function CustomVictoryLineChart({
                         key={index}
                         data={getData(series)}
                         style={{
-                            data: { stroke: series.color.value, fill: series.color.value },
+                            data: { stroke: series.color.value, fill: fillColor ? series.color.value : "transparent" },
                             parent: { border: "1px solid #ccc" }
                         }}
                     />
@@ -52,7 +53,7 @@ export function CustomVictoryLineChart({
                         key={index}
                         data={getData(series)}
                         style={{
-                            data: { stroke: series.color.value, fill: series.color.value },
+                            data: { stroke: series.color.value, fill: fillColor ? series.color.value : "transparent" },
                             parent: { border: "1px solid #ccc" }
                         }}
                     />
