@@ -41,7 +41,7 @@ export function CustomVictoryLineChart({
                     key={index}
                     data={getData(series)}
                     style={{
-                        data: { stroke: series.color.value },
+                        data: { stroke: series.color.value, fill: series.color.value },
                         parent: { border: "1px solid #ccc" }
                     }}
                 />
