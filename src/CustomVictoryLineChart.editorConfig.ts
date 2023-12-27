@@ -1,4 +1,5 @@
 import { CustomVictoryLineChartPreviewProps } from "../typings/CustomVictoryLineChartProps";
+import { hideNestedPropertiesIn } from "@mendix/pluggable-widgets-tools";
 
 export type Platform = "web" | "desktop";
 
@@ -100,7 +101,7 @@ export type PreviewProps =
     | DatasourceProps;
 
 export function getProperties(
-    _values: CustomVictoryLineChartPreviewProps,
+    values: CustomVictoryLineChartPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
     // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
@@ -109,6 +110,14 @@ export function getProperties(
         delete defaultProperties.properties.myOtherProperty;
     }
     */
+
+    values.seriesList.forEach((series, index) => {
+        if (series.inputType === "json") {
+            hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xAttr", "yAttr"]);
+        } else {
+            hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xNode", "yNode"]);
+        }
+    });
     return defaultProperties;
 }
 

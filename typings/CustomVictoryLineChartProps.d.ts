@@ -7,20 +7,28 @@ import { CSSProperties } from "react";
 import { DynamicValue, ListValue, ListAttributeValue } from "mendix";
 import { Big } from "big.js";
 
+export type InputTypeEnum = "list" | "json";
+
 export type TypeEnum = "line" | "area";
 
 export interface SeriesListType {
+    inputType: InputTypeEnum;
     data: ListValue;
     xAttr: ListAttributeValue<Date | string | Big>;
     yAttr: ListAttributeValue<Big>;
+    xNode: string;
+    yNode: string;
     type: TypeEnum;
     color: DynamicValue<string>;
 }
 
 export interface SeriesListPreviewType {
+    inputType: InputTypeEnum;
     data: {} | { caption: string } | { type: string } | null;
     xAttr: string;
     yAttr: string;
+    xNode: string;
+    yNode: string;
     type: TypeEnum;
     color: string;
 }

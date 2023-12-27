@@ -13,6 +13,14 @@
                 <description/>
                 <properties>
                     <propertyGroup caption="General">
+                        <property key="inputType" type="enumeration" defaultValue="list">
+                            <caption>Input type</caption>
+                            <description/>
+                            <enumerationValues>
+                                <enumerationValue key="list">List</enumerationValue>
+                                <enumerationValue key="json">JSON</enumerationValue>
+                            </enumerationValues>
+                        </property>
                         <property key="data" type="datasource" isList="true" required="true">
                             <caption>Chart datasource</caption>
                             <description />
@@ -34,6 +42,14 @@
                                 <attributeType name="Decimal"/>
                                 <attributeType name="Integer"/>
                             </attributeTypes>
+                        </property>
+                        <property key="xNode" type="string">
+                            <caption>X</caption>
+                            <description>Node in JSON which relates to x value</description>
+                        </property>
+                        <property key="yNode" type="string">
+                            <caption>Y</caption>
+                            <description>Node in JSON which relates to y value</description>
                         </property>
                         <property key="type" type="enumeration" defaultValue="line">
                             <caption>Type</caption>

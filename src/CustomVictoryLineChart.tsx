@@ -1,9 +1,8 @@
 import { ReactElement, createElement } from "react";
 import { StyleSheet, View, TextStyle, ViewStyle } from "react-native";
 import { Style } from "@mendix/pluggable-widgets-tools";
-// import { HelloWorld } from "./components/HelloWorld";
 import { CustomVictoryLineChartProps, SeriesListType } from "../typings/CustomVictoryLineChartProps";
-import { VictoryArea, VictoryChart, VictoryStack, VictoryTheme } from "victory-native";
+import { VictoryArea, VictoryChart, VictoryLine, VictoryStack, VictoryTheme } from "victory-native";
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
@@ -36,16 +35,29 @@ export function CustomVictoryLineChart({
     const renderCharts = () => {
         // Iterate over all the series list and generate an Area/Line (TBD) chart
         const chartsToReturn = seriesList.map((series, index) => {
-            return (
-                <VictoryArea
-                    key={index}
-                    data={getData(series)}
-                    style={{
-                        data: { stroke: series.color.value, fill: series.color.value },
-                        parent: { border: "1px solid #ccc" }
-                    }}
-                />
-            );
+            if (series.type === "area") {
+                return (
+                    <VictoryArea
+                        key={index}
+                        data={getData(series)}
+                        style={{
+                            data: { stroke: series.color.value, fill: series.color.value },
+                            parent: { border: "1px solid #ccc" }
+                        }}
+                    />
+                );
+            } else {
+                return (
+                    <VictoryLine
+                        key={index}
+                        data={getData(series)}
+                        style={{
+                            data: { stroke: series.color.value, fill: series.color.value },
+                            parent: { border: "1px solid #ccc" }
+                        }}
+                    />
+                );
+            }
         });
         // If stacked, render all area/line series inside a Victory stack
         if (isStacked) {
