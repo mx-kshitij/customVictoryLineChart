@@ -111,13 +111,13 @@ export function getProperties(
     }
     */
 
-    values.seriesList.forEach((series, index) => {
-        if (series.inputType === "json") {
-            hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xAttr", "yAttr"]);
-        } else {
-            hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xNode", "yNode"]);
-        }
-    });
+    // values.seriesList.forEach((series, index) => {
+    //     if (series.inputType === "json") {
+    //         hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xAttr", "yAttr", "data"]);
+    //     } else {
+    //         hideNestedPropertiesIn(defaultProperties, values, "seriesList", index, ["xNode", "yNode", "jsonAttr"]);
+    //     }
+    // });
     return defaultProperties;
 }
 

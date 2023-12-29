@@ -26,6 +26,7 @@
     "@types/big.js": "^6.0.2"
   },
   "dependencies": {
+    "moment": "^2.30.1",
     "victory-native": "^36.7.0"
   },
   "resolutions": {

@@ -7,28 +7,20 @@ import { CSSProperties } from "react";
 import { DynamicValue, ListValue, ListAttributeValue } from "mendix";
 import { Big } from "big.js";
 
-export type InputTypeEnum = "list" | "json";
-
 export type TypeEnum = "line" | "area";
 
 export interface SeriesListType {
-    inputType: InputTypeEnum;
-    data: ListValue;
-    xAttr: ListAttributeValue<Date | string | Big>;
-    yAttr: ListAttributeValue<Big>;
-    xNode: string;
-    yNode: string;
+    data?: ListValue;
+    xAttr?: ListAttributeValue<Date | string | Big>;
+    yAttr?: ListAttributeValue<Big>;
     type: TypeEnum;
     color: DynamicValue<string>;
 }
 
 export interface SeriesListPreviewType {
-    inputType: InputTypeEnum;
     data: {} | { caption: string } | { type: string } | null;
     xAttr: string;
     yAttr: string;
-    xNode: string;
-    yNode: string;
     type: TypeEnum;
     color: string;
 }
@@ -37,6 +29,19 @@ export interface CustomVictoryLineChartProps<Style> {
     name: string;
     style: Style[];
     seriesList: SeriesListType[];
+    xShowAxis: boolean;
+    xTickData?: ListValue;
+    xTickAttr?: ListAttributeValue<Date | string | Big>;
+    xTickFormatStr: string;
+    xTickColor?: DynamicValue<string>;
+    xGridColor?: DynamicValue<string>;
+    xAxisLabel?: DynamicValue<string>;
+    yShowAxis: boolean;
+    yTickData?: ListValue;
+    yTickAttr?: ListAttributeValue<Big>;
+    yTickColor?: DynamicValue<string>;
+    yGridColor?: DynamicValue<string>;
+    yAxisLabel?: DynamicValue<string>;
     isStacked: boolean;
     fillColor: boolean;
 }
@@ -51,6 +56,19 @@ export interface CustomVictoryLineChartPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     seriesList: SeriesListPreviewType[];
+    xShowAxis: boolean;
+    xTickData: {} | { caption: string } | { type: string } | null;
+    xTickAttr: string;
+    xTickFormatStr: string;
+    xTickColor: string;
+    xGridColor: string;
+    xAxisLabel: string;
+    yShowAxis: boolean;
+    yTickData: {} | { caption: string } | { type: string } | null;
+    yTickAttr: string;
+    yTickColor: string;
+    yGridColor: string;
+    yAxisLabel: string;
     isStacked: boolean;
     fillColor: boolean;
 }

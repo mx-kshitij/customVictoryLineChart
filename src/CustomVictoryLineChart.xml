@@ -13,19 +13,19 @@
                 <description/>
                 <properties>
                     <propertyGroup caption="General">
-                        <property key="inputType" type="enumeration" defaultValue="list">
+                        <!-- <property key="inputType" type="enumeration" defaultValue="list">
                             <caption>Input type</caption>
                             <description/>
                             <enumerationValues>
                                 <enumerationValue key="list">List</enumerationValue>
                                 <enumerationValue key="json">JSON</enumerationValue>
                             </enumerationValues>
-                        </property>
-                        <property key="data" type="datasource" isList="true" required="true">
+                        </property> -->
+                        <property key="data" type="datasource" isList="true" required="false">
                             <caption>Chart datasource</caption>
                             <description />
                         </property>
-                        <property key="xAttr" type="attribute" dataSource="data" required="true">
+                        <property key="xAttr" type="attribute" dataSource="data" required="false">
                             <caption>x attribute</caption>
                             <description/>
                             <attributeTypes>
@@ -35,7 +35,7 @@
                                 <attributeType name="Integer"/>
                             </attributeTypes>
                         </property>
-                        <property key="yAttr" type="attribute" dataSource="data" required="true">
+                        <property key="yAttr" type="attribute" dataSource="data" required="false">
                             <caption>y attribute</caption>
                             <description/>
                             <attributeTypes>
@@ -43,14 +43,21 @@
                                 <attributeType name="Integer"/>
                             </attributeTypes>
                         </property>
-                        <property key="xNode" type="string">
+                        <!-- <property key="jsonAttr" type="attribute" required="false">
+                            <caption>JSON</caption>
+                            <description/>
+                            <attributeTypes>
+                                <attributeType name="String"/>
+                            </attributeTypes>
+                        </property>
+                        <property key="xNode" type="string" required="false">
                             <caption>X</caption>
                             <description>Node in JSON which relates to x value</description>
                         </property>
-                        <property key="yNode" type="string">
+                        <property key="yNode" type="string" required="false">
                             <caption>Y</caption>
                             <description>Node in JSON which relates to y value</description>
-                        </property>
+                        </property> -->
                         <property key="type" type="enumeration" defaultValue="line">
                             <caption>Type</caption>
                             <description/>
@@ -65,6 +72,72 @@
                         </property>
                     </propertyGroup>
                 </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="X axis">
+            <property key="xShowAxis" type="boolean" defaultValue="true">
+                <caption>Show ?</caption>
+                <description/>
+            </property>
+            <property key="xTickData" type="datasource" isList="true" required="false">
+                <caption>X axis source</caption>
+                <description>Do not select a source for default x values</description>
+            </property>
+            <property key="xTickAttr" type="attribute" dataSource="xTickData" required="false">
+                <caption>x axis attribute</caption>
+                <description>Attribute which represents value for x axis. Should be of the same type for all series.</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                    <attributeType name="String"/>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="xTickFormatStr" type="string" required="false">
+                <caption>Label Format</caption>
+                <description>Only supported for DateTime type attribute</description>
+            </property>
+            <property key="xTickColor" type="textTemplate" required="false">
+                <caption>Label color</caption>
+                <description/>
+            </property>
+            <property key="xGridColor" type="textTemplate" required="false">
+                <caption>Grid color</caption>
+                <description>Use transparent to hide</description>
+            </property>
+            <property key="xAxisLabel" type="textTemplate" required="false">
+                <caption>Axis label</caption>
+                <description/>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Y axis">
+            <property key="yShowAxis" type="boolean" defaultValue="true">
+                <caption>Show ?</caption>
+                <description/>
+            </property>
+            <property key="yTickData" type="datasource" isList="true" required="false">
+                <caption>Y axis source</caption>
+                <description>Do not select a source for default x values</description>
+            </property>
+            <property key="yTickAttr" type="attribute" dataSource="yTickData" required="false">
+                <caption>y axis attribute</caption>
+                <description>Attribute which represents value for x axis. Should be of the same type for all series.</description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="yTickColor" type="textTemplate" required="false">
+                <caption>Label color</caption>
+                <description/>
+            </property>
+            <property key="yGridColor" type="textTemplate" required="false">
+                <caption>Grid color</caption>
+                <description>Use transparent to hide</description>
+            </property>
+            <property key="yAxisLabel" type="textTemplate" required="false">
+                <caption>Axis label</caption>
+                <description/>
             </property>
         </propertyGroup>
         <propertyGroup caption="Options">
