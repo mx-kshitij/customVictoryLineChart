@@ -56,6 +56,7 @@ export function CustomVictoryLineChart({
         const dataToReturn = series.data?.items?.map(item => {
             let xVal;
             if (series.xAttr?.type === "Decimal" || series.xAttr?.type === "Integer" || series.xAttr?.type === "Long") {
+                // @ts-ignore
                 xVal = series.xAttr?.get(item).value?.toNumber();
             } else {
                 xVal = series.xAttr?.get(item).value;

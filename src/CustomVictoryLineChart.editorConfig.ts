@@ -1,5 +1,5 @@
 import { CustomVictoryLineChartPreviewProps } from "../typings/CustomVictoryLineChartProps";
-import { hideNestedPropertiesIn } from "@mendix/pluggable-widgets-tools";
+// import { hideNestedPropertiesIn } from "@mendix/pluggable-widgets-tools";
 
 export type Platform = "web" | "desktop";
 
@@ -101,7 +101,7 @@ export type PreviewProps =
     | DatasourceProps;
 
 export function getProperties(
-    values: CustomVictoryLineChartPreviewProps,
+    _values: CustomVictoryLineChartPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
     // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
