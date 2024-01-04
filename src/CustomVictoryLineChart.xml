@@ -66,12 +66,24 @@
                                 <enumerationValue key="area">Area</enumerationValue>
                             </enumerationValues>
                         </property>
-                        <property key="color" type="textTemplate" required="true">
-                            <caption>Color</caption>
+                        <property key="fillColor" type="textTemplate" required="true">
+                            <caption>Fill color</caption>
+                            <description/>
+                        </property>
+                        <property key="strokeColor" type="textTemplate" required="true">
+                            <caption>Stroke color</caption>
+                            <description/>
+                        </property>
+                        <property key="strokeWidth" type="integer" defaultValue="2" required="true">
+                            <caption>Stroke width</caption>
                             <description/>
                         </property>
                     </propertyGroup>
                 </properties>
+            </property>
+            <property key="isStacked" type="boolean" defaultValue="false">
+                <caption>Stacked ?</caption>
+                <description/>
             </property>
         </propertyGroup>
         <propertyGroup caption="X axis">
@@ -109,6 +121,10 @@
                 <caption>Axis label</caption>
                 <description/>
             </property>
+            <property key="xAxisLabelColor" type="textTemplate" required="false">
+                <caption>Title color</caption>
+                <description/>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Y axis">
             <property key="yShowAxis" type="boolean" defaultValue="true">
@@ -139,16 +155,12 @@
                 <caption>Axis label</caption>
                 <description/>
             </property>
-        </propertyGroup>
-        <propertyGroup caption="Options">
-            <property key="isStacked" type="boolean" defaultValue="false">
-                <caption>Stacked ?</caption>
-                <description/>
-            </property>
-            <property key="fillColor" type="boolean" defaultValue="true">
-                <caption>Fill color ?</caption>
+            <property key="yAxisLabelColor" type="textTemplate" required="false">
+                <caption>Title color</caption>
                 <description/>
             </property>
         </propertyGroup>
+        <!-- <propertyGroup caption="Options">
+        </propertyGroup> -->
     </properties>
 </widget>

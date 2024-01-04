@@ -14,7 +14,9 @@ export interface SeriesListType {
     xAttr?: ListAttributeValue<Date | string | Big>;
     yAttr?: ListAttributeValue<Big>;
     type: TypeEnum;
-    color: DynamicValue<string>;
+    fillColor: DynamicValue<string>;
+    strokeColor: DynamicValue<string>;
+    strokeWidth: number;
 }
 
 export interface SeriesListPreviewType {
@@ -22,13 +24,16 @@ export interface SeriesListPreviewType {
     xAttr: string;
     yAttr: string;
     type: TypeEnum;
-    color: string;
+    fillColor: string;
+    strokeColor: string;
+    strokeWidth: number | null;
 }
 
 export interface CustomVictoryLineChartProps<Style> {
     name: string;
     style: Style[];
     seriesList: SeriesListType[];
+    isStacked: boolean;
     xShowAxis: boolean;
     xTickData?: ListValue;
     xTickAttr?: ListAttributeValue<Date | string | Big>;
@@ -36,14 +41,14 @@ export interface CustomVictoryLineChartProps<Style> {
     xTickColor?: DynamicValue<string>;
     xGridColor?: DynamicValue<string>;
     xAxisLabel?: DynamicValue<string>;
+    xAxisLabelColor?: DynamicValue<string>;
     yShowAxis: boolean;
     yTickData?: ListValue;
     yTickAttr?: ListAttributeValue<Big>;
     yTickColor?: DynamicValue<string>;
     yGridColor?: DynamicValue<string>;
     yAxisLabel?: DynamicValue<string>;
-    isStacked: boolean;
-    fillColor: boolean;
+    yAxisLabelColor?: DynamicValue<string>;
 }
 
 export interface CustomVictoryLineChartPreviewProps {
@@ -56,6 +61,7 @@ export interface CustomVictoryLineChartPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     seriesList: SeriesListPreviewType[];
+    isStacked: boolean;
     xShowAxis: boolean;
     xTickData: {} | { caption: string } | { type: string } | null;
     xTickAttr: string;
@@ -63,12 +69,12 @@ export interface CustomVictoryLineChartPreviewProps {
     xTickColor: string;
     xGridColor: string;
     xAxisLabel: string;
+    xAxisLabelColor: string;
     yShowAxis: boolean;
     yTickData: {} | { caption: string } | { type: string } | null;
     yTickAttr: string;
     yTickColor: string;
     yGridColor: string;
     yAxisLabel: string;
-    isStacked: boolean;
-    fillColor: boolean;
+    yAxisLabelColor: string;
 }

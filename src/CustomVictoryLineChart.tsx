@@ -23,14 +23,15 @@ export function CustomVictoryLineChart({
     xTickColor,
     xGridColor,
     xAxisLabel,
+    xAxisLabelColor,
     yShowAxis,
     yTickData,
     yTickAttr,
     yTickColor,
     yGridColor,
     yAxisLabel,
-    isStacked,
-    fillColor
+    yAxisLabelColor,
+    isStacked
 }: CustomVictoryLineChartProps<CustomStyle>): ReactElement {
     // const [dataToRender, setDataToRender] = useState<any>([]);
 
@@ -87,7 +88,11 @@ export function CustomVictoryLineChart({
                         key={index}
                         data={getData(series)}
                         style={{
-                            data: { stroke: series.color.value, fill: fillColor ? series.color.value : "transparent" },
+                            data: {
+                                stroke: series.strokeColor.value,
+                                strokeWidth: series.strokeWidth,
+                                fill: series.fillColor.value
+                            },
                             parent: { border: "1px solid #ccc" }
                         }}
                         // x={series.inputType === "json" ? series.xNode : "x"}
@@ -100,7 +105,11 @@ export function CustomVictoryLineChart({
                         key={index}
                         data={getData(series)}
                         style={{
-                            data: { stroke: series.color.value, fill: fillColor ? series.color.value : "transparent" },
+                            data: {
+                                stroke: series.strokeColor.value,
+                                strokeWidth: series.strokeWidth,
+                                fill: series.fillColor.value
+                            },
                             parent: { border: "1px solid #ccc" }
                         }}
                         // x={series.inputType === "json" ? series.xNode : "x"}
@@ -148,7 +157,7 @@ export function CustomVictoryLineChart({
             return {
                 tickLabels: { fill: tickColor },
                 grid: { stroke: gridColor },
-                axisLabel: { fontSize: 16, fill: "white", padding: 30 }
+                axisLabel: { fontSize: 16, fill: xAxisLabelColor ? xAxisLabelColor.value : "white", padding: 30 }
             };
         } else {
             return {
@@ -156,7 +165,7 @@ export function CustomVictoryLineChart({
                 ticks: { stroke: "transparent" },
                 tickLabels: { fill: "transparent" },
                 grid: { stroke: "transparent" },
-                axisLabel: { fontSize: 16, fill: "white", padding: 30 }
+                axisLabel: { fontSize: 16, fill: xAxisLabelColor ? xAxisLabelColor.value : "white", padding: 30 }
             };
         }
     };
@@ -168,7 +177,7 @@ export function CustomVictoryLineChart({
             return {
                 tickLabels: { fill: tickColor },
                 grid: { stroke: gridColor },
-                axisLabel: { fontSize: 16, fill: "white", padding: 30 }
+                axisLabel: { fontSize: 16, fill: yAxisLabelColor ? yAxisLabelColor.value : "white", padding: 30 }
             };
         } else {
             return {
@@ -176,7 +185,7 @@ export function CustomVictoryLineChart({
                 ticks: { stroke: "transparent" },
                 tickLabels: { fill: "transparent" },
                 grid: { stroke: "transparent" },
-                axisLabel: { fontSize: 16, fill: "white", padding: 30 }
+                axisLabel: { fontSize: 16, fill: yAxisLabelColor ? yAxisLabelColor.value : "white", padding: 30 }
             };
         }
     };
@@ -228,7 +237,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#f5fcff"
+        alignItems: "center"
     }
 });
